@@ -6,7 +6,7 @@ fn sum_squares(numbers: Vec<i64>) -> i64 {
 }
 
 #[pymodule]
-fn rustlib(_py: Python, m: &PyModule) -> PyResult<()> {
+fn rustlib(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(sum_squares, m)?)?;
     Ok(())
 }
